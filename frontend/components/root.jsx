@@ -2,6 +2,7 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import App from './app';
 import React from 'react';
 import {Provider} from 'react-redux';
+import SessionContainer from './session/session_form_container';
 
 const Root = ({store}) => {
 
