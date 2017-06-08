@@ -2,9 +2,166 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .logo {
   display: flex;
+  position: relative;
   font-size: 56px;
   text-decoration: none;
   color: black;
+  left: 5px;
+}
+
+.user-greeting{
+  display: flex;
+  line-height: 64px;
+
+  a{
+    padding-right: 5px;
+    padding-left: 5px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .logout:hover{
+    cursor: pointer;
+    background-color: gray;
+  }
+}
+
+.login-signup{
+  display: flex;
+  line-height: 64px;
+
+  a{
+    padding-right: 5px;
+    padding-left: 5px;
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover{
+    cursor: pointer;
+    background-color: gray;
+
+  }
+}
+
+.auth-err-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+}
+
+.auth-errors{
+  display: flex;
+  color: red;
+}
+
+.login-form-box{
+  display: flex;
+  position: relative;
+  left: calc(50% - 175px);
+  top: 125px;
+  background-color: black;
+  opacity: .75;
+  border-radius: 20px;
+  flex-direction: column;
+  width: 350px;
+  height: 400px;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.login-title{
+  display: flex;
+  color: white;
+  font-size: 26px;
+}
+
+.login-form{
+  display: flex;
+  width: 100%;
+  height: 50%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login-input{
+  display: flex;
+  width: 55%;
+  background-color: transparent;
+  color: white;
+  border-style: none;
+  border-bottom: solid white;
+  border-width: thin;
+  text-align: center;
+  outline: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.login-submit{
+  display: flex;
+  width: 33%;
+  background-color: transparent;
+  border: solid white;
+  border-width: thin;
+  border-radius: 7px;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  height: 30px;
+  justify-content: center;
+  outline: none;
+}
+
+.auth-form-toggle{
+  display: flex;
+  color: white;
+  text-decoration: none;
+}
+
+.auth-question-toggle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+}
+
+.login-submit:hover, .login-home:hover,
+.auth-form-toggle:hover{
+  cursor: pointer;
+  border-color: #2C8437;
+  color: #2C8437;
+}
+
+.radio-buttons{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.account-type{
+  display: flex;
+  color: white;
+}
+
+.account-type-label{
+  display: flex;
+
+}
+
+.type-label{
+  display: flex;
+  color: white;
 }

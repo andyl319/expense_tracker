@@ -4,8 +4,10 @@ import { Link, withRouter } from 'react-router';
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { username: "", password: "" };
+		this.state = { username: "", password: "", admin: "" };
+
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleRadio = this.handleRadio.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -26,6 +28,7 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+
 		const user = this.state;
 		this.props.processForm({user});
 	}
@@ -66,27 +69,56 @@ class SessionForm extends React.Component {
 		);
 	}
 
+	handleRadio(e){
+		if(e.target.value === "true"){
+			this.setState({admin: true});
+		} else {
+			this.setState({admin: false});
+		}
+
+	}
+
+	toggleRadioButtons() {
+		if (this.props.formType === 'login') {
+			return ;
+		} else {
+			return (
+				<div className="radio-buttons">
+					<div className="account-type">Type of account: </div>
+					<div className="account-type-label">
+						<input type="radio" onChange={this.handleRadio} name="admin" value="true"/>
+						<div className="type-label">Admin</div>
+					</div>
+					<div className="account-type-label">
+						<input type="radio" onChange={this.handleRadio} name="admin" value="false"/>
+						<div className="type-label">Basic</div>
+					</div>
+				</div>
+			);
+		}
+	}
+
 	render() {
+
 		return (
 			<div className="login-form-container">
-				<h1 className="auth-header">Rate My Employer</h1>
 				<form onSubmit={this.handleSubmit} className="login-form-box">
 					{this.title()}
 					{this.renderErrors()}
 					<div className="login-form">
-							<input type="text"
-								value={this.state.username}
-								onChange={this.update("username")}
-								className="login-input"
-								placeholder="Username"/>
-							<input type="password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								className="login-input"
-								placeholder="Password"/>
+						{this.toggleRadioButtons()}
+						<input type="text"
+							value={this.state.username}
+							onChange={this.update("username")}
+							className="login-input"
+							placeholder="Username"/>
+						<input type="password"
+							value={this.state.password}
+							onChange={this.update("password")}
+							className="login-input"
+							placeholder="Password"/>
 						<input className="login-submit" type="submit" value="Submit" />
 					</div>
-					<Link className="login-home" to="/home">Continue to site!</Link>
 					<div className="auth-question-toggle">
 						<div>Please {this.props.formType} or</div>
 						{this.navLink()}
